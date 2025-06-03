@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
-const initialMovie = [
+const initialMovies = [
     {
         id: 1,
         title: "titolo 1",
@@ -41,11 +41,32 @@ const initialMovie = [
     }
 ]
 
+const initialReviews = [
+    {
+        id: 1,
+        text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, molestiae eum, repellendus nostrum accusantium ducimus sed debitis",
+        author: "autore 1",
+        vote: 1
+    },
+    {
+        id: 2,
+        text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, molestiae eum, repellendus nostrum accusantium ducimus sed debitis",
+        author: "autore 2",
+        vote: 2
+    },
+    {
+        id: 3,
+        text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, molestiae eum, repellendus nostrum accusantium ducimus sed debitis",
+        author: "autore 3",
+        vote: 3
+    }
+]
+
 const Moviepage = () => {
     const { id } = useParams()
     console.log(id)
 
-    const [movies, setMovies] = useState(initialMovie)
+    const [movies, setMovies] = useState(initialMovies)
     const [movieDetail, setMovieDetail] = useState({})
 
     //recupero l'oggetto della'array con l'id passato come parametro
@@ -80,6 +101,37 @@ const Moviepage = () => {
                         </div>
                     </>
                 )}
+            </div>
+            <div className="row mt-4 gy-4">
+                <div className="col-12">
+                    <div className="d-flex justify-content-between">
+                        <h3>Community Reviews</h3>
+                    </div>
+                </div>
+                {/* 1 */}
+                <div className="col-12">
+                    <div className="card p-4">
+                        <p>Testo recensione</p>
+                        <p>voto</p>
+                        <p>autore</p>
+                    </div>
+                </div>
+                {/* 2 */}
+                <div className="col-12">
+                    <div className="card p-4">
+                        <p>Testo recensione</p>
+                        <p>voto</p>
+                        <p>autore</p>
+                    </div>
+                </div>
+                {/* 3 */}
+                <div className="col-12">
+                    <div className="card p-4">
+                        <p>Testo recensione</p>
+                        <p>voto</p>
+                        <p>autore</p>
+                    </div>
+                </div>
             </div>
         </>
     )
