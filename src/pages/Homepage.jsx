@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import MovieCard from '../components/MovieCard'
 
 const initialMovie = [
     {
@@ -52,24 +52,9 @@ const Homepage = () => {
                 <i>All the best Movies!</i>
             </h2>
             <div className="row gy-4">
-                {/* 1 */}
                 {movies.map((movie) => {
                     return (
-                        <div className="col-12 col-md-6 col-lg-4">
-                            <div className="card">
-                                <div className="card-image-top">
-                                    <img className='img-fluid' src={movie.image} alt='movie' />
-                                </div>
-                                <div className="card-body">
-                                    <h3 className="text-primary">{movie.title}</h3>
-                                    <h4><em>{movie.director}</em></h4>
-                                    <h4>{movie.genre}</h4>
-                                    <h4>{movie.release_year}</h4>
-                                    <p>{movie.abstract}</p>
-                                    <Link className='btn btn-primary' to="/movies/1">Dettagli 1</Link>
-                                </div>
-                            </div>
-                        </div>
+                        <MovieCard movie={movie} key={`movie-${movie.id}`} />
                     )
                 })}
             </div>
