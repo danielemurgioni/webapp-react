@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import ReviewCard from '../components/ReviewCard'
 
 const initialMovies = [
     {
@@ -67,6 +68,8 @@ const Moviepage = () => {
     console.log(id)
 
     const [movies, setMovies] = useState(initialMovies)
+    const [reviews, setReviews] = useState(initialReviews)
+
     const [movieDetail, setMovieDetail] = useState({})
 
     //recupero l'oggetto della'array con l'id passato come parametro
@@ -108,30 +111,10 @@ const Moviepage = () => {
                         <h3>Community Reviews</h3>
                     </div>
                 </div>
-                {/* 1 */}
-                <div className="col-12">
-                    <div className="card p-4">
-                        <p>Testo recensione</p>
-                        <p>voto</p>
-                        <p>autore</p>
-                    </div>
-                </div>
-                {/* 2 */}
-                <div className="col-12">
-                    <div className="card p-4">
-                        <p>Testo recensione</p>
-                        <p>voto</p>
-                        <p>autore</p>
-                    </div>
-                </div>
-                {/* 3 */}
-                <div className="col-12">
-                    <div className="card p-4">
-                        <p>Testo recensione</p>
-                        <p>voto</p>
-                        <p>autore</p>
-                    </div>
-                </div>
+                {/* review */}
+                {reviews.map((review) => (
+                    <ReviewCard review={review} key={`review-${review.id}`} />
+                ))}
             </div>
         </>
     )
