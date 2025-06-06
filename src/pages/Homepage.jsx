@@ -1,5 +1,5 @@
-import React from 'react'
-import { useState } from 'react'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 import MovieCard from '../components/MovieCard'
 
 const initialMovie = [
@@ -44,6 +44,16 @@ const initialMovie = [
 const Homepage = () => {
 
     const [movies, setMovies] = useState(initialMovie)
+
+    const fetchMovies = () => {
+        axios.get("http://127.0.0.1:3000/api/movies").then((resp) => {
+            console.log(resp.data)
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
+    useEffect(fetchMovies, [])
 
     return (
         <>
